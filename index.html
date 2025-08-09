@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>SamaObservatory — Interactive Observatory</title>
+<meta name="description" content="Multilingual, time‑aware sky with animated clouds, moon/sun, and star atlas preview.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800&family=Noto+Naskh+Arabic:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css" />
+</head>
+<body class="night">
+  <div class="scene">
+    <canvas id="stars"></canvas>
+    <canvas id="moonSun"></canvas>
+    <canvas id="clouds"></canvas>
+  </div>
+  <div class="vignette"></div>
+
+  <div class="container">
+    <header class="header">
+      <div class="brand">
+        <div class="logo"></div>
+        <div class="brand-title" id="t_brand">SamaObservatory | المرصد التفاعلي</div>
+      </div>
+      <nav class="nav">
+        <a href="#live" id="t_nav_live">السماء الآن</a>
+        <a href="#atlas" id="t_nav_atlas">أطلس النجوم</a>
+        <a href="#stories" id="t_nav_stories">حكايا السماء</a>
+      </nav>
+      <div class="lang">
+        <label for="langSel" class="meta" id="t_lang_label">اللغة</label>
+        <select id="langSel" aria-label="Language">
+          <option value="ar" selected>العربية</option>
+          <option value="en">English</option>
+          <option value="hi">हिन्दी</option>
+          <option value="ur">اردو</option>
+          <option value="zh">中文</option>
+        </select>
+      </div>
+    </header>
+
+    <section class="hero">
+      <div class="intro">
+        <h1 id="t_h1" class="rtlCaps">مشاهدة فلكية تتبدّل مع أوقات النهار — سماء، قمر و☁️ غيوم</h1>
+        <p class="lead" id="t_lead">تجربة فوق الغيوم تتبدّل بصريًا مع الصباح والنهار والعصر الذهبي والغروب والليل.</p>
+        <div class="badges">
+          <span class="chip" id="t_badge_clouds">☁️ غيوم متحركة بطبقات</span>
+          <span class="chip" id="t_badge_dynamic">تغيّر بصري حسب الوقت</span>
+        </div>
+        <div class="actions">
+          <a class="btn primary" href="#atlas" id="t_cta_start">ابدأ الاستكشاف</a>
+          <a class="btn" href="#stories" id="t_cta_read">اقرأ الحكايات</a>
+          <select id="phase" class="btn" style="padding:8px 10px">
+            <option value="">الزمن تلقائي</option>
+            <option value="morning">صباح</option>
+            <option value="day">نهار</option>
+            <option value="afternoon">عصر</option>
+            <option value="sunset">غروب</option>
+            <option value="night">ليل</option>
+          </select>
+        </div>
+      </div>
+      <div class="card" id="live">
+        <div class="meta"><span id="t_local_time">الوقت المحلي</span>: <span id="now"></span></div>
+        <div class="meta" style="margin-top:6px" id="t_note_notmap">هذه محاكاة فنية — ليست خريطة سماوية دقيقة بعد.</div>
+      </div>
+    </section>
+
+    <section id="atlas" class="section">
+      <h2 id="t_atlas">أطلس النجوم</h2>
+      <div class="grid" id="starGrid"></div>
+    </section>
+
+    <section id="stories" class="section">
+      <h2 id="t_stories">حكايا السماء</h2>
+      <div class="card">
+        <p id="t_story_para">قريبًا: قصص الكوكبات وروابط NASA/ESO. هذه نسخة تصميم.</p>
+      </div>
+    </section>
+
+    <footer>© <span id="y"></span> <span id="t_footer_brand">SamaObservatory</span> — <span id="t_footer_made">صنع لعشّاق السماء</span></footer>
+  </div>
+
+<script src="script.js"></script>
+</body>
+</html>
